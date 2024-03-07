@@ -7,7 +7,6 @@ import anim from "../../public/anim/HomeLogin.json";
 import { useState, useEffect } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import Router from "next/router";
-import Link from "next/link";
 
 //paguina para el login desde los administradores --> profesores
 export default function Index() {
@@ -27,8 +26,8 @@ export default function Index() {
   const [re_user, setRe_user] = useState({
     p_nombres_apellidos: "",
     p_email: "",
-    p_contra: "",
-    p_contra2: "",
+    p_contra: " ",
+    p_contra2: " ",
   });
 
   //variable para detectar un error y mostrar el error
@@ -75,7 +74,7 @@ export default function Index() {
       //Cookie para el id del usuario
       cookies.set("id_user", result.data.id, { path: "/" });
 
-      console.log(result.data);
+      //console.log(result.data);
       
       //para abrir la nueva ruta en la misma pestana
       Router.push("/dashboard/Home");
@@ -102,10 +101,10 @@ export default function Index() {
           }
         );
 
-        console.log(res.data);
+        //console.log(res.data);
         //Aqui va para sacar el token ty sacar el mail del token que te regresa google
         const email = res.data.email;
-        console.log(email);
+        //console.log(email);
 
         //Llama al metodo pasandole el email
         GoogleLogin(email);
@@ -118,9 +117,9 @@ export default function Index() {
   const GoogleLogin = async (p_email) => {
     setLoader(true);
     try {
-      console.log(p_email);
+      //console.log(p_email);
       const result = await axios.post(
-        process.env.NEXT_PUBLIC_ACCESLINK + "authgoogle/LoginGoogle",
+        process.env.NEXT_PUBLIC_ACCESLINK + "auth/LoginGoogle",
         { p_email },
         {
           withCredentials: true,
@@ -138,7 +137,7 @@ export default function Index() {
       //para abrir la nueva ruta en la misma pestana
       Router.push("/dashboard/Home");
 
-      console.log(result.data);
+      //console.log(result.data);
     } catch (error) {
       console.log(error);
       setLoader(false);
@@ -171,7 +170,7 @@ export default function Index() {
       setLoader(true);
       try {
         const result = await axios.post(
-          process.env.NEXT_PUBLIC_ACCESLINK + "register/RegistrarUser",
+          process.env.NEXT_PUBLIC_ACCESLINK + "auth/RegistrarUser",
           re_user,
           {
             withCredentials: true,

@@ -171,7 +171,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                         <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
                           <li>
                             <Link
-                              href="/"
+                              href="/dashboard/Home"
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                                 pathname.includes("profile") &&
                                 "bg-graydark dark:bg-meta-4"
@@ -192,7 +192,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           </li>
                           <li>
                             <Link
-                              href="/"
+                              href="/dashboard/Lecturas"
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                                 pathname.includes("profile") &&
                                 "bg-graydark dark:bg-meta-4"
@@ -213,7 +213,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           </li>
                           <li>
                             <Link
-                              href="/profile"
+                              href="/dashboard/Estadisticas"
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                                 pathname.includes("profile") &&
                                 "bg-graydark dark:bg-meta-4"
@@ -229,12 +229,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                               >
                                 <RiBarChartFill />
                               </svg>
-                              Estadisticas
+                              Estadísticas
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/profile"
+                              href="/dashboard/Historico"
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                                 pathname.includes("profile") &&
                                 "bg-graydark dark:bg-meta-4"
@@ -250,12 +250,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                               >
                                 <TbHistoryToggle />
                               </svg>
-                              Historico
+                              Histórico
                             </Link>
                           </li>
                           <li>
                             <Link
-                              href="/profile"
+                              href="/dashboard/Reportes"
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                                 pathname.includes("profile") &&
                                 "bg-graydark dark:bg-meta-4"
@@ -286,7 +286,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               {/* <!-- Menu Item Perfil --> */}
               <li>
                 <Link
-                  href="/profile"
+                  href="/dashboard/Usuario"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes("profile") && "bg-graydark dark:bg-meta-4"
                   }`}
