@@ -1,7 +1,7 @@
 import React from "react";
 import "@/styles/globals.css";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Principal from "./Principal/Principal";
+import Perfil_Usuarios from "./Perfil_Usuario";
 import { useState } from "react";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
   const [load, setLoader] = useState(false);
   return (
     <DefaultLayout>
-      <Principal />
+      <Perfil_Usuarios />
     </DefaultLayout>
   );
 }

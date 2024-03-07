@@ -16,7 +16,7 @@ const CardDataStats = ({
         <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
           {children}
         </div>
-        <span className="ml-10 text-title-md font-bold">{text}</span>
+        <span className="ml-10 text-title-md font-bold text-black dark:text-white">{text}</span>
       </div>
 
       <div className="mt-4 flex items-end justify-between">
@@ -24,7 +24,7 @@ const CardDataStats = ({
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {total}
           </h4>
-          <span className="text-sm font-medium">{title}</span>
+          <span className="text-sm font-medium dark:text-white">{title}</span>
         </div>
 
         <span
