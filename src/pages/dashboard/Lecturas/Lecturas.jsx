@@ -3,6 +3,7 @@ import React from "react";
 import TituloPagina from "@/components/Titulo/titulopagina";
 
 const Lecturas = () => {
+    
   return (
     <div className="mx-auto max-w-7xl">
       <TituloPagina nombrepagina="Lecturas" />
