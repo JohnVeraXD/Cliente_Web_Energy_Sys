@@ -10,18 +10,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  //variable para mostrar el loader cuando carga una peticion
-  const [load, setLoader] = useState<boolean>(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoader(false), 1000);
-  }, []);
 
   return (
     <html lang="en">
       <body className={inter.className}>
       <div className="dark:bg-boxdark-2 dark:text-bodydark">
-          {load ? <Loader /> : children}
         </div>
       </body>
     </html>

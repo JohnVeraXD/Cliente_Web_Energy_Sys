@@ -90,7 +90,7 @@ const DropdownUser = () => {
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
           <li>
             <Link
-              href="/profile"
+              href="/dashboard/Usuario"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base  text-black dark:text-white"
             >
               <svg
@@ -108,7 +108,7 @@ const DropdownUser = () => {
           </li>
           <li>
             <Link
-              href="/settings"
+              href="/dashboard/Configuracion"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base  text-black dark:text-white"
             >
               <svg
@@ -125,7 +125,7 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base  text-black dark:text-white">
+        <Link href="/" className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base  text-black dark:text-white">
           <svg
             className="fill-current"
             width="30"
@@ -137,7 +137,7 @@ const DropdownUser = () => {
             <IoIosLogOut />
           </svg>
           Cerrar sesión
-        </button>
+        </Link>
       </div>
       {/* <!-- Dropdown End --> */}
     </div>

@@ -14,8 +14,8 @@ useEffect(() => {
         startAngle: 200,
         endAngle: -20,
         min: 0,
-        max: 60,
-        splitNumber: 12,
+        max: 8000,
+        splitNumber: 10,
         itemStyle: {
           color: "#FFAB91",
         },
@@ -32,7 +32,7 @@ useEffect(() => {
           },
         },
         axisTick: {
-          distance: -25,
+          distance: -45,
           splitNumber: 5,
           lineStyle: {
             width: 2,
@@ -40,7 +40,7 @@ useEffect(() => {
           },
         },
         splitLine: {
-          distance: -32,
+          distance: -52,
           length: 14,
           lineStyle: {
             width: 3,
@@ -50,7 +50,7 @@ useEffect(() => {
         axisLabel: {
           distance: -10,
           color: "black",
-          fontSize: 15,
+          fontSize: 10,
         },
         anchor: {
           show: false,
@@ -81,7 +81,7 @@ useEffect(() => {
         startAngle: 200,
         endAngle: -20,
         min: 0,
-        max: 60,
+        max: 8000,
         itemStyle: {
           color: "#FD7347",
         },
