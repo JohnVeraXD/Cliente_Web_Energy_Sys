@@ -12,8 +12,20 @@ import { TbHistoryToggle } from "react-icons/tb";
 import { TbReportSearch } from "react-icons/tb";
 import { RiBarChartFill } from "react-icons/ri";
 import { IoMdPulse } from "react-icons/io";
+import { Loader } from "@/widgets";
+import { useRouter } from "next/router";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+  const router = useRouter();
+  //variable para mostrar el loader cuando carga una peticion
+  const [load, setLoader] = useState(false);
+
+  const DarNavegacion = async (href) => {
+    setLoader(true); // Mostrar el loader al hacer clic en un enlace
+    await router.push(href); // Navegar a la página correspondiente
+    setLoader(false); // Ocultar el loader después de que se cargue la página
+  };
+
   const pathname = usePathname();
 
   const trigger = useRef(null);
@@ -63,11 +75,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
-        sidebarOpen ? "translate-x-0" : "-translate-x-full"
+      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark ${
+        sidebarOpen ? "translate-x-0 lg:relative" : "-translate-x-full"
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
+      {load ? <Loader /> : ""}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <Link href="Home">
           <Image
@@ -84,7 +97,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           onClick={() => setSidebarOpen(!sidebarOpen)}
           aria-controls="sidebar"
           aria-expanded={sidebarOpen}
-          className="block lg:hidden"
+          className="block"
         >
           <svg
             className="fill-current text-whiter"
@@ -172,6 +185,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <li>
                             <Link
                               href="/dashboard/Home"
+                              onClick={() =>
+                                DarNavegacion("/dashboard/Home")
+                              }
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                                 pathname.includes("profile") &&
                                 "bg-graydark dark:bg-meta-4"
@@ -193,8 +209,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <li>
                             <Link
                               href="/dashboard/Lecturas"
+                              onClick={() =>
+                                DarNavegacion("/dashboard/Lecturas")
+                              }
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                                pathname.includes("profile") &&
+                                pathname.includes("Lecturas") &&
                                 "bg-graydark dark:bg-meta-4"
                               }`}
                             >
@@ -214,8 +233,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <li>
                             <Link
                               href="/dashboard/Estadisticas"
+                              onClick={() =>
+                                DarNavegacion("/dashboard/Estadisticas")
+                              }
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                                pathname.includes("profile") &&
+                                pathname.includes("Estadisticas") &&
                                 "bg-graydark dark:bg-meta-4"
                               }`}
                             >
@@ -235,8 +257,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <li>
                             <Link
                               href="/dashboard/Historico"
+                              onClick={() =>
+                                DarNavegacion("/dashboard/Historico")
+                              }
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                                pathname.includes("profile") &&
+                                pathname.includes("Historico") &&
                                 "bg-graydark dark:bg-meta-4"
                               }`}
                             >
@@ -256,8 +281,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <li>
                             <Link
                               href="/dashboard/Reportes"
+                              onClick={() =>
+                                DarNavegacion("/dashboard/Reportes")
+                              }
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                                pathname.includes("profile") &&
+                                pathname.includes("Reportes") &&
                                 "bg-graydark dark:bg-meta-4"
                               }`}
                             >
@@ -287,8 +315,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <Link
                   href="/dashboard/Usuario"
+                  onClick={() =>
+                    DarNavegacion("/dashboard/Usuario")
+                  }
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("profile") && "bg-graydark dark:bg-meta-4"
+                    pathname.includes("Usuario") && "bg-graydark dark:bg-meta-4"
                   }`}
                 >
                   <svg
@@ -309,7 +340,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               {/* <!-- Menu Item configuracion --> */}
               <li>
                 <Link
-                  href="configuracion"
+                  href="Configuracion"
+                  onClick={() =>
+                    DarNavegacion("/dashboard/Configuracion")
+                  }
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes("configuracion") &&
                     "bg-graydark dark:bg-meta-4"

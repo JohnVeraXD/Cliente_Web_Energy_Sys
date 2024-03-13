@@ -1,3 +1,4 @@
+"use client";
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import Lottie from "lottie-react";

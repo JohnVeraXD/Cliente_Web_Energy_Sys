@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function Home() {
   //variable para mostrar el loader cuando carga una peticion
-  const [load, setLoader] = useState(false);
+  //const [load, setLoader] = useState(false);
   return (
     <DefaultLayout>
       <Principal />
