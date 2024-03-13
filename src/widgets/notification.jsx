@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { Alert, IconButton } from "@material-tailwind/react";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
