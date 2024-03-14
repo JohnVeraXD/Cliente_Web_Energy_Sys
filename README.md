@@ -40,12 +40,27 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-##Este es el CLiente Web del proyecto EnergySystem: Sistema de Monitoreo de consumo Energía en el hogar con tecnología Iot.
+## Este es el CLiente Web del proyecto EnergySystem: Sistema de Monitoreo de consumo Energía en el hogar con tecnología Iot.
 
-Interfaces del proyecto:
+##Interfaces del proyecto:
 
-----------------Inicio de sesión-------------------
+------------------ Inicio de sesión: --------------------
 
 ![image](https://github.com/JohnVeraXD/Cliente_Web_Energy_Sys/assets/108051712/df484805-6645-46bb-ba6a-a7cea1e68a81)
+
+
+------------------ Registrar de usario: --------------------
+
+![image](https://github.com/JohnVeraXD/Cliente_Web_Energy_Sys/assets/108051712/120b959d-f1c1-4da4-b4cf-23d558613f57)
+
+
+------------------ Interfaz Principal: --------------------
+
+![image](https://github.com/JohnVeraXD/Cliente_Web_Energy_Sys/assets/108051712/788e6977-3505-4375-bcc5-15f173e8108a)
+
+
+------------------ Interfaz de las Lecturas: --------------------
+
+![image](https://github.com/JohnVeraXD/Cliente_Web_Energy_Sys/assets/108051712/5213d69a-3a96-4976-8d69-785991ea012b)
 
 
