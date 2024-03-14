@@ -1,7 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Create the archive .env:
+```
 NEXT_PUBLIC_ACCESLINK = "link run the server"
+```
 
 ## Getting Started
 
@@ -38,5 +40,12 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+##Este es el CLiente Web del proyecto EnergySystem: Sistema de Monitoreo de consumo Energía en el hogar con tecnología Iot.
+
+Interfaces del proyecto:
+
+----------------Inicio de sesión-------------------
+
+![image](https://github.com/JohnVeraXD/Cliente_Web_Energy_Sys/assets/108051712/df484805-6645-46bb-ba6a-a7cea1e68a81)
 
 
