@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import Router from "next/router";
 
-//paguina para el login desde los administradores --> profesores
 export default function Index() {
   //Borrar cookies en caso de existir alguna
   useEffect(() => {

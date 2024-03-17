@@ -4,6 +4,14 @@ import TituloPagina from "@/components/Titulo/titulopagina";
 import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import {
+  Checkbox,
+  Card,
+  List,
+  ListItem,
+  ListItemPrefix,
+  Typography,
+} from "@material-tailwind/react";
 
 const Perfil_Usuario = () => {
   const cookies = new Cookies();
@@ -31,9 +39,9 @@ const Perfil_Usuario = () => {
 
       //console.log(response);
       const data = await response.json();
-      //console.log(data);
+      console.log(data);
       setDatosUser(data[0]);
-      console.log(datosuser);
+      //console.log(datosuser);
     } catch (error) {
       //colocar una alerta de error
       setError(true);
@@ -76,12 +84,41 @@ const Perfil_Usuario = () => {
           </div>
           <div className="mt-1">
             <h2 className="mb-1.5  font-semibold text-black dark:text-white">
-            {datosuser.r_nombre_apellidos}
+              {datosuser.r_nombre_apellidos}
             </h2>
             <h2 className="mb-1.5  font-semibold text-black dark:text-white">
-            {datosuser.r_email}
+              {datosuser.r_email}
             </h2>
-
+            <div className="flex justify-center">
+              <Card className="w-full max-w-[24rem] items-center">
+                <List className="flex-row">
+                  <ListItem className="p-0">
+                    <label
+                      htmlFor="horizontal-list-react"
+                      className="flex w-full cursor-pointer items-center px-3 py-2"
+                    >
+                      <ListItemPrefix className="mr-3">
+                        <Checkbox
+                          id="1"
+                          ripple={false}
+                          className={`hover:before:opacity-0 ${
+                            datosuser.r_configuracion ? 'bg-green-600' : 'bg-red-600'
+                          }`}
+                          checked={datosuser.r_configuracion}
+                          containerProps={{
+                            className: "p-0",
+                          }}
+                          
+                        />
+                      </ListItemPrefix>
+                      <Typography color="blue-gray" className="font-medium">
+                        Esta Configurado?
+                      </Typography>
+                    </label>
+                  </ListItem>
+                </List>
+              </Card>
+            </div>
             <div className=" mt-4.5  mx-auto max-w-180">
               <h4 className="font-semibold text-black dark:text-white">
                 ¡Bienvenido¡
