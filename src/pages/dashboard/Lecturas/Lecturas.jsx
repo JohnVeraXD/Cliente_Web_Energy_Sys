@@ -21,6 +21,10 @@ import GAPPotencia from "@/components/Graficos/Pastel/GraficoPastelPotencia";
 
 import GAPCorriente from "@/components/Graficos/Pastel/GraficoPastelCorriente";
 
+import GAPVoltaje from "@/components/Graficos/Pastel/GraficoPastelVoltaje";
+
+import GAFPotencia from "@/components/Graficos/Pastel/GraficoPastelFPotencia";
+
 const dataPotencia = [
   { time: "2018-12-22", value: 32.51 },
   { time: "2018-12-23", value: 31.11 },
@@ -61,7 +65,7 @@ const Lecturas = () => {
   return (
     <div className="mx-auto max-w-7xl">
       <TituloPagina nombrepagina="Lecturas" />
-      <div className="grid grid-cols-12 gap-4 md:gap-6 2xl:gap-7.5">
+      <div className="grid grid-cols-12 gap-4 md:gap-4 2xl:gap-5">
         {/*<div className="col-span-12 md:col-span-8">
           <GraficoLineas1 />
   </div>*/}
@@ -71,14 +75,14 @@ const Lecturas = () => {
         {/* <div className="col-span-12 md:col-span-8">
           <Graficalineas3 />
         </div>*/}
-        <div className="col-span-12 rounded-sm border border-stroke bg-white px-2 pb-2 pt-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-5 xl:col-span-8">
-          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2  w-100%">
+        <div className="col-span-12 rounded-sm border border-stroke bg-white px-2 pb-1 pt-2 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-5 xl:col-span-8">
+          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2 ">
             Potencia
           </h2>
           <GraficoPotencia data={dataPotencia}></GraficoPotencia>
         </div>
-        <div className="col-span-12 md:col-span-4 rounded-sm border border-stroke bg-white px-2 pb-2 pt-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-2">
-          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2  w-100%">
+        <div className="col-span-12 md:col-span-12 xl:col-span-4 rounded-sm border border-stroke bg-white px-2 pb-2 pt-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-2">
+          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2  pl-5">
             Potencia
           </h2>
           <GAPPotencia />
@@ -89,11 +93,23 @@ const Lecturas = () => {
           </h2>
           <GraficoCorriente data={dataCorriente}></GraficoCorriente>
         </div>
-        <div className="col-span-12 md:col-span-4 rounded-sm border border-stroke bg-white px-2 pb-2 pt-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-2">
-          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2  w-100%">
+        <div className="col-span-12 md:col-span-12  xl:col-span-4 rounded-sm border border-stroke bg-white px-2 pb-2 pt-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-2">
+          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2 pl-5">
           Corriente
           </h2>
           <GAPCorriente />
+        </div>
+        <div className="col-span-12 md:col-span-12  xl:col-span-4 rounded-sm border border-stroke bg-white px-2 pb-2 pt-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-2">
+          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2 pl-5">
+          Voltaje
+          </h2>
+          <GAPVoltaje />
+        </div>
+        <div className="col-span-12 md:col-span-12  xl:col-span-4 rounded-sm border border-stroke bg-white px-2 pb-2 pt-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-2">
+          <h2 className=" text-title-sm2 font-semibold text-black dark:text-white text-left pb-2 pl-5">
+          Factor Potencia
+          </h2>
+          <GAFPotencia />
         </div>
       </div>
     </div>

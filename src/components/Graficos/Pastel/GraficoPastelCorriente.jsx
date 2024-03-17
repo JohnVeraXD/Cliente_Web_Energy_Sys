@@ -64,7 +64,7 @@ useEffect(() => {
           lineHeight: 40,
           borderRadius: 8,
           offsetCenter: [0, "-15%"],
-          fontSize: 30,
+          fontSize: 20,
           fontWeight: "bolder",
           formatter: "{value} A",
           color: "inherit",
