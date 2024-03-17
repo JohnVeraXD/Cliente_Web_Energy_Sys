@@ -37,7 +37,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     storedSidebarExpanded === null ? false : storedSidebarExpanded === "true"
   );
 
-  // close on click outside
+  // Cierra la barra si presiono dentro del datos
+  /*
   useEffect(() => {
     const clickHandler = ({ target }) => {
       if (!sidebar.current || !trigger.current) return;
@@ -52,6 +53,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
   });
+*/
 
   // close if the esc key is pressed
   useEffect(() => {
@@ -185,9 +187,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           <li>
                             <Link
                               href="/dashboard/Home"
-                              onClick={() =>
-                                DarNavegacion("/dashboard/Home")
-                              }
+                              onClick={() => DarNavegacion("/dashboard/Home")}
                               className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                                 pathname.includes("profile") &&
                                 "bg-graydark dark:bg-meta-4"
@@ -315,9 +315,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <Link
                   href="/dashboard/Usuario"
-                  onClick={() =>
-                    DarNavegacion("/dashboard/Usuario")
-                  }
+                  onClick={() => DarNavegacion("/dashboard/Usuario")}
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes("Usuario") && "bg-graydark dark:bg-meta-4"
                   }`}
@@ -341,9 +339,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <li>
                 <Link
                   href="Configuracion"
-                  onClick={() =>
-                    DarNavegacion("/dashboard/Configuracion")
-                  }
+                  onClick={() => DarNavegacion("/dashboard/Configuracion")}
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes("configuracion") &&
                     "bg-graydark dark:bg-meta-4"

@@ -1,9 +1,9 @@
 import * as echarts from 'echarts';
 import React, { useEffect } from "react";
 
-const GraficoPastelPotencia = () => {
+const GraficoPastelVoltaje = () => {
 useEffect(() => {
-  const chartDom = document.getElementById("GAPPotencia");
+  const chartDom = document.getElementById("GAPVoltaje");
   const myChart = echarts.init(chartDom);
 
   const option = {
@@ -14,10 +14,10 @@ useEffect(() => {
         startAngle: 200,
         endAngle: -20,
         min: 0,
-        max: 8000,
+        max: 150,
         splitNumber: 10,
         itemStyle: {
-          color: "#FFAB91",
+          color: "mediumorchid",
         },
         progress: {
           show: true,
@@ -66,7 +66,7 @@ useEffect(() => {
           offsetCenter: [0, "-15%"],
           fontSize: 20,
           fontWeight: "bolder",
-          formatter: "{value} W",
+          formatter: "{value} V",
           color: "inherit",
         },
         data: [
@@ -81,9 +81,9 @@ useEffect(() => {
         startAngle: 200,
         endAngle: -20,
         min: 0,
-        max: 8000,
+        max: 100,
         itemStyle: {
-          color: "#FD7347",
+          color: "purple",
         },
         progress: {
           show: true,
@@ -145,7 +145,7 @@ useEffect(() => {
   };
 }, []); // Asegúrate de que este efecto se ejecute solo una vez al montar el componente
 
-return <div id="GAPPotencia" style={{ width: "100%", height: "100%" }}></div>;
+return <div id="GAPVoltaje" style={{ width: "100%", height: "220px" }}></div>;
 };
 
-export default GraficoPastelPotencia;
+export default GraficoPastelVoltaje;

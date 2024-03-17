@@ -28,7 +28,7 @@ export const GraficoCorriente = (props) => {
         textColor,
       },
       width: chartContainerRef.current.clientWidth,
-      height: 380,
+      height: 200,
     });
     chart.timeScale().fitContent();
 
