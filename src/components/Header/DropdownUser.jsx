@@ -5,12 +5,23 @@ import { IoIosArrowDown } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
+import Cookies from "universal-cookie";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
+
+  const cerrarSesion = () => {
+    alert("Hola");
+    // Creamos una instancia de cookies
+    const cookies = new Cookies();
+    // Eliminamos la cookie llamada "id_user"
+    cookies.remove("id_user");
+    cookies.remove("myTokenName");
+    
+  };
 
   // close on click outside
   useEffect(() => {
@@ -125,7 +136,8 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <Link href="/" className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base  text-black dark:text-white">
+        <Link onClick={cerrarSesion} href="/" className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base  text-black dark:text-white"
+        >
           <svg
             className="fill-current"
             width="30"
