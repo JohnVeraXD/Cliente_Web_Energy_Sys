@@ -14,7 +14,6 @@ const DropdownUser = () => {
   const dropdown = useRef(null);
 
   const cerrarSesion = () => {
-    alert("Hola");
     // Creamos una instancia de cookies
     const cookies = new Cookies();
     // Eliminamos la cookie llamada "id_user"
