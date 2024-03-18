@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import axios from "axios";
 import TituloPagina from "@/components/Titulo/titulopagina";
 import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
@@ -92,6 +93,30 @@ const Configuracion = () => {
     }
   };
 
+  //funcion para Crear un token
+  const GenerarToken = async () => {
+    try {
+      const p_uuid = cookies.get("id_user");
+      const result = await axios.post(
+        process.env.NEXT_PUBLIC_ACCESLINK + "usuario/Crear_token",
+        { p_uuid },
+        {
+          withCredentials: true,
+        }
+      );
+
+      const data = await result.data.message;
+
+      alert("se creo el token correctamente: {$1}",data)
+
+      window.location.reload(); // Recargar la página
+
+    } catch (error) {
+      console.log(error);
+      //colocar una alerta de error cuando no se pueda inciar sesion
+    }
+  };
+
   // Función para copiar el token al portapapeles
   const copyTokenToClipboard = (token) => {
     // Copiar el token al portapapeles
@@ -153,90 +178,95 @@ const Configuracion = () => {
                 </List>
               </Card>
             </div>
-            <div className="flex justify-center pt-10">
-              <Button className="flex items-center gap-3 bg-green-700 ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="h-5 w-5"
-                >
-                  <FaGear size={22} />
-                </svg>
-                Generar Token
-              </Button>
-            </div>
-            <CardBody className="overflow-scroll px-0">
-              {token.length === 0 ? (
-                <div className=" items-center text-center">
-                  <Typography variant="h5">
-                    No hay actividades registradas.
-                  </Typography>
-                  <Typography variant="h5">Cree actividades</Typography>
-                </div>
-              ) : (
-                <table className="mt-4 w-full min-w-max table-auto text-left">
-                  <thead>
-                    <tr>
-                      {TABLE_HEAD.map((head) => (
-                        <th
-                          key={head}
-                          className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
-                        >
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal leading-none opacity-70"
+            {datosuser.r_configuracion === false ? (
+              <div className="flex justify-center pt-10">
+                <Button className="flex items-center gap-3 bg-green-700 " onClick={GenerarToken}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="h-5 w-5"
+                  >
+                    <FaGear size={22} />
+                  </svg>
+                  Generar Token
+                </Button>
+              </div>
+            ) : (
+              <CardBody className="overflow-scroll px-0">
+                {token.length === 0 ? (
+                  <div className=" items-center text-center">
+                    <Typography variant="h5">
+                      No hay actividades registradas.
+                    </Typography>
+                    <Typography variant="h5">Cree actividades</Typography>
+                  </div>
+                ) : (
+                  <table className="mt-4 w-full min-w-max table-auto text-left">
+                    <thead>
+                      <tr>
+                        {TABLE_HEAD.map((head) => (
+                          <th
+                            key={head}
+                            className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
                           >
-                            {head}
-                          </Typography>
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {token.map((task) => (
-                      <tr key={task.r_tokens}>
-                        <td className="p-4 border-b border-blue-gray-50">
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal"
-                          >
-                            {task.r_tokens}
-                          </Typography>
-                        </td>
-                        <td className="p-4 border-b border-blue-gray-50">
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal"
-                          >
-                            {task.r_fecha_creacion}
-                          </Typography>
-                        </td>
-                        <td className="p-4 border-b border-blue-gray-50">
-                          <Button
-                            onClick={() => copyTokenToClipboard(task.r_tokens)}
-                            color="indigo"
-                            buttonType="filled"
-                            size="regular"
-                            rounded={false}
-                            block={false}
-                            iconOnly={false}
-                            ripple="light"
-                          >
-                            <FaCopy className="mr-2" />
-                          </Button>
-                        </td>
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal leading-none opacity-70"
+                            >
+                              {head}
+                            </Typography>
+                          </th>
+                        ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              )}
-            </CardBody>
+                    </thead>
+                    <tbody>
+                      {token.map((task) => (
+                        <tr key={task.r_tokens}>
+                          <td className="p-4 border-b border-blue-gray-50">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              {task.r_tokens}
+                            </Typography>
+                          </td>
+                          <td className="p-4 border-b border-blue-gray-50">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              {task.r_fecha_creacion}
+                            </Typography>
+                          </td>
+                          <td className="p-4 border-b border-blue-gray-50">
+                            <Button
+                              onClick={() =>
+                                copyTokenToClipboard(task.r_tokens)
+                              }
+                              color="indigo"
+                              buttonType="filled"
+                              size="regular"
+                              rounded={false}
+                              block={false}
+                              iconOnly={false}
+                              ripple="light"
+                            >
+                              <FaCopy className="mr-2" />
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </CardBody>
+            )}
           </div>
         </div>
       </div>
